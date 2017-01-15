@@ -28,6 +28,37 @@ var albumMarconi = {
   ]
 };
 
+var albumBestOfClassicBananasInPyjamas = {
+  title: 'Best of Classic Bananas in Pyjamas',
+  artist: 'Bananas in Pyjamas',
+  label: 'ABC Kids',
+  year: '2015',
+  albumArtUrl: 'assets/images/album_covers/22.jpg',
+  songs: [
+    { title: 'Bananas in Pyjamas', duration: '0:57' },
+    { title: 'Roll Up, Roll up!', duration: '2:57' },
+    { title: 'Jump Up! Spin Round', duration: '3:34'},
+    { title: 'It’s Singing Time', duration: '2:39' },
+    { title: 'I Love a Noisy Trombone', duration: '1:43'},
+    { title: 'We Like Wearing Pyjamas', duration: '1:31'},
+    { title: 'Oogie Boogie', duration: '2:33'},
+    { title: 'Shake Away the Cobwebs', duration: '1:45'},
+    { title: 'Banana Ballet', duration: '1:48'},
+    { title: 'Yodellay-hee-hoo!', duration: '2:02'},
+    { title: 'In the Jungle', duration: '0:50'},
+    { title: 'Food', duration: '7:48'},
+    { title: 'Beach Ball, Beach Ball', duration: '1:45'},
+    { title: 'Lulu’s Disco', duration: '0:50'},
+    { title: 'Old MacDonald', duration: '2:24'},
+    { title: 'I Know What You Like', duration: '1:37'},
+    { title: 'B-a-n-a-n-a-s', duration: '2:26'},
+    { title: 'Crazy, Crazy Conga', duration: '1:35'},
+    { title: 'Teddy Bear Twist', duration: '2:29'},
+    { title: 'Bye! Bye!', duration: '1:05'},
+    { title: 'Bananas In Pyjamas', duration: '0:32'}
+  ]
+};
+
 var createSongRow = function(songNumber, songName, songLength) {
   var template =
       '<tr class="album-view-song-item">'
@@ -58,6 +89,17 @@ var setCurrentAlbum = function(album) {
   }
 };
  
+albums = [albumPicasso, albumMarconi, albumBestOfClassicBananasInPyjamas];
+var albumListIndex = 0;
+
 window.onload = function() {
-  setCurrentAlbum(albumPicasso);
+  setCurrentAlbum(albums[albumListIndex]);
 };
+
+document.getElementsByClassName('album-cover-art')[0].addEventListener('click', function() {
+  albumListIndex++;
+  if (albumListIndex === albums.length) {
+    albumListIndex = 0;
+  };
+  setCurrentAlbum(albums[albumListIndex]);
+});
