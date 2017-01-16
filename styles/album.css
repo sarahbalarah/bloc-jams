@@ -49,6 +49,7 @@ album-view-details .album-view-artist {
  
 .song-item-number {
   width: 5%;
+  min-width: 30px;
 }
  
 .song-item-title {
@@ -58,6 +59,33 @@ album-view-details .album-view-artist {
 .song-item-duration {
   width: 5%;
 }
+
+.album-song-button {
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  color: rgb(210, 40, 123);
+  border-radius: 50% 50%;
+  /* My icons weren't centering vertically so I went back and cut and pasted everything exactly
+  twice but it still wouldn't work. I did some googling and found "vertical-align" but it
+  wouldn't work with "display: inline-block" so I changed it to "table-cell". Did I miss something
+  somewhere? :/ */
+  display: table-cell; 
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
+}
+ 
+.album-song-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(210, 40, 123);
+}
+ 
+.album-song-button span {
+  line-height: 28px;
+}
+
 
 @media (max-width: 640px) and (min-width: 320px) {
   .album-view-details {
